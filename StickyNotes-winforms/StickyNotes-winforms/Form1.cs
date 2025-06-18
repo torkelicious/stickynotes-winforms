@@ -63,11 +63,6 @@ namespace StickyNotes_winforms
             richTextBox1.BackColor = bgcolorDialog.Color;
         }
 
-        private void fontDialog1_Apply(object sender, EventArgs e)
-        {
-
-        }
-
         private void fontBtn_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowColor = true;
@@ -83,19 +78,28 @@ namespace StickyNotes_winforms
 
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void fontDialog1_Apply_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.Title = "Save Sticky Note";
+            saveFileDialog1.Filter = "Rich Text Files (*.rtf)|*.rtf|Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            saveFileDialog1.AddExtension = false;
+            saveFileDialog1.FileName = "MyNote";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var type = saveFileDialog1.FilterIndex == 2 ? RichTextBoxStreamType.PlainText : RichTextBoxStreamType.RichText;
+                richTextBox1.SaveFile(saveFileDialog1.FileName, type);
+            }
         }
     }
 }

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StickyNote));
             richTextBox1 = new RichTextBox();
             topmostWindowCheck = new CheckBox();
             newwinbutton = new Button();
             bgcolorBtn = new Button();
             fontBtn = new Button();
             fontDialog1 = new FontDialog();
+            saveFileDialog1 = new SaveFileDialog();
+            saveBtn = new Button();
             SuspendLayout();
             // 
             // richTextBox1
@@ -47,7 +50,7 @@
             richTextBox1.Font = new Font("Segoe Print", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             richTextBox1.Location = new Point(3, 25);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(397, 426);
+            richTextBox1.Size = new Size(450, 426);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -73,7 +76,7 @@
             newwinbutton.Cursor = Cursors.Hand;
             newwinbutton.FlatStyle = FlatStyle.Popup;
             newwinbutton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            newwinbutton.Location = new Point(325, 0);
+            newwinbutton.Location = new Point(297, 0);
             newwinbutton.Name = "newwinbutton";
             newwinbutton.Size = new Size(75, 19);
             newwinbutton.TabIndex = 4;
@@ -88,7 +91,7 @@
             bgcolorBtn.Cursor = Cursors.Hand;
             bgcolorBtn.FlatStyle = FlatStyle.Popup;
             bgcolorBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            bgcolorBtn.Location = new Point(200, 0);
+            bgcolorBtn.Location = new Point(175, 0);
             bgcolorBtn.Name = "bgcolorBtn";
             bgcolorBtn.Size = new Size(119, 19);
             bgcolorBtn.TabIndex = 5;
@@ -103,7 +106,7 @@
             fontBtn.Cursor = Cursors.Hand;
             fontBtn.FlatStyle = FlatStyle.Popup;
             fontBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            fontBtn.Location = new Point(140, 0);
+            fontBtn.Location = new Point(115, 0);
             fontBtn.Name = "fontBtn";
             fontBtn.Size = new Size(54, 19);
             fontBtn.TabIndex = 6;
@@ -113,24 +116,44 @@
             // 
             // fontDialog1
             // 
-            fontDialog1.ShowApply = true;
             fontDialog1.ShowColor = true;
             fontDialog1.Apply += fontDialog1_Apply_1;
+            // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.FileOk += saveFileDialog1_FileOk;
+            // 
+            // saveBtn
+            // 
+            saveBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            saveBtn.BackColor = Color.Silver;
+            saveBtn.Cursor = Cursors.Hand;
+            saveBtn.FlatStyle = FlatStyle.Popup;
+            saveBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            saveBtn.Location = new Point(378, 0);
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new Size(75, 19);
+            saveBtn.TabIndex = 7;
+            saveBtn.Text = "Save Note";
+            saveBtn.UseVisualStyleBackColor = false;
+            saveBtn.Click += saveBtn_Click;
             // 
             // StickyNote
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(400, 450);
+            ClientSize = new Size(453, 450);
+            Controls.Add(saveBtn);
             Controls.Add(fontBtn);
             Controls.Add(bgcolorBtn);
             Controls.Add(newwinbutton);
             Controls.Add(topmostWindowCheck);
             Controls.Add(richTextBox1);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "StickyNote";
-            Text = "stickynotes";
+            Text = "Sticky Notes";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -144,5 +167,7 @@
         private Button bgcolorBtn;
         private Button fontBtn;
         private FontDialog fontDialog1;
+        private SaveFileDialog saveFileDialog1;
+        private Button saveBtn;
     }
 }
