@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
@@ -100,6 +101,39 @@ namespace StickyNotes_winforms
                 var type = saveFileDialog1.FilterIndex == 2 ? RichTextBoxStreamType.PlainText : RichTextBoxStreamType.RichText;
                 richTextBox1.SaveFile(saveFileDialog1.FileName, type);
             }
+        }
+
+   
+        private void openFileBtn_Click(object sender, EventArgs e)
+        {
+            var filePath = string.Empty;
+
+            openFileDialog1.Title = "Open File";
+            openFileDialog1.Filter = "Rich Text Files (*.rtf)|*.rtf|Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            openFileDialog1.AddExtension = true;
+            openFileDialog1.FileName = "MyNote";
+
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                filePath = openFileDialog1.FileName;
+
+                if (Path.GetExtension(filePath).Equals(".rtf", StringComparison.OrdinalIgnoreCase))
+                {
+                    richTextBox1.LoadFile(filePath, RichTextBoxStreamType.RichText);
+                }
+                else
+                {
+                    richTextBox1.LoadFile(filePath, RichTextBoxStreamType.PlainText);
+                }
+
+            }
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
     }
 }

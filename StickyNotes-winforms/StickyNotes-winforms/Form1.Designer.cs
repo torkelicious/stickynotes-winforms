@@ -37,6 +37,8 @@
             fontDialog1 = new FontDialog();
             saveFileDialog1 = new SaveFileDialog();
             saveBtn = new Button();
+            openFileBtn = new Button();
+            openFileDialog1 = new OpenFileDialog();
             SuspendLayout();
             // 
             // richTextBox1
@@ -50,7 +52,7 @@
             richTextBox1.Font = new Font("Segoe Print", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             richTextBox1.Location = new Point(3, 25);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(451, 427);
+            richTextBox1.Size = new Size(519, 427);
             richTextBox1.TabIndex = 0;
             richTextBox1.Text = "";
             richTextBox1.TextChanged += richTextBox1_TextChanged;
@@ -77,7 +79,7 @@
             newwinbutton.Cursor = Cursors.Hand;
             newwinbutton.FlatStyle = FlatStyle.Popup;
             newwinbutton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            newwinbutton.Location = new Point(299, 0);
+            newwinbutton.Location = new Point(288, 0);
             newwinbutton.Name = "newwinbutton";
             newwinbutton.Size = new Size(74, 23);
             newwinbutton.TabIndex = 4;
@@ -92,7 +94,7 @@
             bgcolorBtn.Cursor = Cursors.Hand;
             bgcolorBtn.FlatStyle = FlatStyle.Popup;
             bgcolorBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            bgcolorBtn.Location = new Point(179, 0);
+            bgcolorBtn.Location = new Point(168, 0);
             bgcolorBtn.Name = "bgcolorBtn";
             bgcolorBtn.Size = new Size(119, 23);
             bgcolorBtn.TabIndex = 5;
@@ -107,7 +109,7 @@
             fontBtn.Cursor = Cursors.Hand;
             fontBtn.FlatStyle = FlatStyle.Popup;
             fontBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            fontBtn.Location = new Point(129, 0);
+            fontBtn.Location = new Point(118, 0);
             fontBtn.Name = "fontBtn";
             fontBtn.Size = new Size(49, 23);
             fontBtn.TabIndex = 6;
@@ -131,7 +133,7 @@
             saveBtn.Cursor = Cursors.Hand;
             saveBtn.FlatStyle = FlatStyle.Popup;
             saveBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            saveBtn.Location = new Point(375, 0);
+            saveBtn.Location = new Point(364, 0);
             saveBtn.Name = "saveBtn";
             saveBtn.Size = new Size(78, 23);
             saveBtn.TabIndex = 7;
@@ -139,13 +141,34 @@
             saveBtn.UseVisualStyleBackColor = false;
             saveBtn.Click += saveBtn_Click;
             // 
+            // openFileBtn
+            // 
+            openFileBtn.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            openFileBtn.BackColor = Color.Silver;
+            openFileBtn.Cursor = Cursors.Hand;
+            openFileBtn.FlatStyle = FlatStyle.Popup;
+            openFileBtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            openFileBtn.Location = new Point(443, 0);
+            openFileBtn.Name = "openFileBtn";
+            openFileBtn.Size = new Size(78, 23);
+            openFileBtn.TabIndex = 8;
+            openFileBtn.Text = "Open File";
+            openFileBtn.UseVisualStyleBackColor = false;
+            openFileBtn.Click += openFileBtn_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.FileOk += openFileDialog1_FileOk;
+            // 
             // StickyNote
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(454, 451);
+            ClientSize = new Size(522, 451);
+            Controls.Add(openFileBtn);
             Controls.Add(saveBtn);
             Controls.Add(fontBtn);
             Controls.Add(bgcolorBtn);
@@ -172,5 +195,7 @@
         private FontDialog fontDialog1;
         private SaveFileDialog saveFileDialog1;
         private Button saveBtn;
+        private Button openFileBtn;
+        private OpenFileDialog openFileDialog1;
     }
 }
